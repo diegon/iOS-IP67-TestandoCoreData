@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Contato.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    Contato *contato = [NSEntityDescription insertNewObjectForEntityForName:@"Contato"
+                                                     inManagedObjectContext:self.managedObjectContext];
+    contato.nome = @"Diego";
+    [self saveContext];
+    
+    NSLog(@"%@", contato.nome);
+    
     return YES;
 }
 
